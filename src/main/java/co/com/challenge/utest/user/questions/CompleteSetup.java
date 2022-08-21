@@ -23,7 +23,13 @@ public class CompleteSetup implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
+        boolean result;
         String complete_setup = Text.of(LastStepPage.COMPLETE_SETUP).viewedBy(actor).asString();
-        return data.get(0).getStrTextoFinal().equals(complete_setup);
+        if(data.get(0).getStrTextoFinal().equals(complete_setup)){
+            result = true;
+        }else{
+            result = false;
+        }
+        return result;
     }
 }
